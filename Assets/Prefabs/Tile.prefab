@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6293626960392583767}
   - component: {fileID: 314469306000451758}
   - component: {fileID: 32428066904223932}
+  - component: {fileID: -9196356277803862206}
+  - component: {fileID: -1093911792621564689}
   m_Layer: 5
   m_Name: Tile
   m_TagString: Untagged
@@ -119,4 +121,40 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 314469306000451758}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -9196356277803862206}
+        m_TargetAssemblyTypeName: ScanMode, Assembly-CSharp
+        m_MethodName: OnMouseDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-9196356277803862206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2643518138406941271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547e3a6e5bd37c2478179da405f63b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1093911792621564689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2643518138406941271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547e3a6e5bd37c2478179da405f63b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

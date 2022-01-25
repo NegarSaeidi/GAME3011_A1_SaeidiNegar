@@ -66,12 +66,13 @@ public class TileGeneration : MonoBehaviour
                     tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = Color.red;
                     HalfTilesGeneration(index);
                     QuarterTilesGeneration(index);
-                    EmptyTilesGeneration(index);
+              
                 }
             }
             index++;
 
         }
+        EmptyTilesGeneration(index);
     }
     private void HalfTilesGeneration(int index)
     {
@@ -86,8 +87,8 @@ public class TileGeneration : MonoBehaviour
 
             for(int i=0;  i<tilesArray.Count; i++)
             {
-              if (tilesArray[i].resourceValue == Resources.NOTASSIGNED)
-           
+            if ((tilesArray[i].resourceValue == Resources.NOTASSIGNED) || (tilesArray[i].resourceValue == Resources.QUARTER))
+
                 if ((tilesArray[i].x ==RowBeforeMax && tilesArray[i].y == ColumnBeforeMax) ||
                    (tilesArray[i].x == RowBeforeMax && tilesArray[i].y == MaxTileColumn) ||
                    (tilesArray[i].x == RowBeforeMax && tilesArray[i].y == ColumnAfterMax)||
@@ -122,7 +123,7 @@ public class TileGeneration : MonoBehaviour
 
         for (int i = 0; i < tilesArray.Count; i++)
         {
-            if (tilesArray[i].resourceValue == Resources.NOTASSIGNED)
+            if ((tilesArray[i].resourceValue == Resources.NOTASSIGNED))
 
                 if ((tilesArray[i].x == TwoRowsBeforeMax && tilesArray[i].y == TwoColumnsBeforeMax) ||
                    (tilesArray[i].x == TwoRowsBeforeMax && tilesArray[i].y == ColumnBeforeMax) ||
@@ -141,7 +142,7 @@ public class TileGeneration : MonoBehaviour
                    (tilesArray[i].x == TwoRowsAfterMax && tilesArray[i].y == ColumnAfterMax) ||
                    (tilesArray[i].x == TwoRowsAfterMax && tilesArray[i].y == TwoColumnsAfterMax)  )
                 {
-                    tilesArray[i].resourceValue = Resources.HALF;
+                    tilesArray[i].resourceValue = Resources.QUARTER;
                     tilesArray[i].tileGameObject.gameObject.GetComponent<Image>().color = Color.yellow;
                 }
 
@@ -151,6 +152,14 @@ public class TileGeneration : MonoBehaviour
     }
     private void EmptyTilesGeneration(int index)
     {
-
+        for (int i = 0; i < tilesArray.Count; i++)
+        {
+            if (tilesArray[i].resourceValue == Resources.NOTASSIGNED)
+            {
+                tilesArray[i].resourceValue = Resources.EMPTY;
+                tilesArray[i].tileGameObject.gameObject.GetComponent<Image>().color = Color.gray;
+            }
+                
+    }
     }
 }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 314469306000451758}
   - component: {fileID: 32428066904223932}
   - component: {fileID: -9196356277803862206}
-  - component: {fileID: -1093911792621564689}
   m_Layer: 5
   m_Name: Tile
   m_TagString: Untagged
@@ -146,15 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 547e3a6e5bd37c2478179da405f63b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1093911792621564689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2643518138406941271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 547e3a6e5bd37c2478179da405f63b66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  HiddenColor: {r: 0, g: 0.99215686, b: 1, a: 0}
+  MaxColor: {r: 0.9803922, g: 0, b: 0.6431373, a: 1}
+  HalfColor: {r: 0.9450981, g: 0.61960787, b: 0.8313726, a: 1}
+  QuarterColor: {r: 1, g: 0.9490197, b: 0.9803922, a: 1}
+  EmptyColor: {r: 0.4039216, g: 0.39607847, b: 0.40000004, a: 1}

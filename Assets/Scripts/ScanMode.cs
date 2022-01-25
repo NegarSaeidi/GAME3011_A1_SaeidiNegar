@@ -5,9 +5,12 @@ using UnityEngine.UI;
 public class ScanMode : MonoBehaviour
 {
     GameObject generatedTiles;
+    public Color HiddenColor, MaxColor, HalfColor, QuarterColor, EmptyColor;
+
+  
     void Start()
     {
-      
+       
         GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 
         foreach (GameObject go in allObjects)
@@ -27,13 +30,19 @@ public class ScanMode : MonoBehaviour
     void Update()
     {
 
+        if (!generatedTiles.GetComponent<ScanExtractController>().scanMode)
+            gameObject.GetComponent<Image>().color = Color.cyan;
+             
+            
+        
     }
 
     public void OnMouseDown()
     {
         int index = 0;
-        if (generatedTiles.GetComponent<ScanExtractController>().scanMode)
+        if (generatedTiles.GetComponent<ScanExtractController>().scanMode && !generatedTiles.GetComponent<ScanExtractController>().ReachedMaxOfScans)
         {
+            generatedTiles.GetComponent<ScanExtractController>().NumberOfScansCounter();
             while (index < generatedTiles.GetComponent<TileGeneration>().tilesArray.Count)
             {
                 if (generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.transform == this.transform)
@@ -58,6 +67,7 @@ public class ScanMode : MonoBehaviour
                 index++;
             }
         }
+       
     }
    
     private void setTileColors(int row, int column)
@@ -71,16 +81,16 @@ public class ScanMode : MonoBehaviour
                 switch (generatedTiles.GetComponent<TileGeneration>().tilesArray[index].resourceValue)
                 {
                     case Resources.MAX:
-                        generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = Color.yellow;
+                        generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = MaxColor;
                         break;
                     case Resources.HALF:
-                        generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = Color.red;
+                        generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = HalfColor;
                         break;
                     case Resources.QUARTER:
-                        generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = Color.green;
+                        generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = QuarterColor;
                         break;
                     case Resources.EMPTY:
-                        generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = Color.gray;
+                        generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = EmptyColor;
                         break;
 
                 }

@@ -475,7 +475,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &499516878
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 499516881}
   - component: {fileID: 499516880}
   - component: {fileID: 499516882}
+  - component: {fileID: 499516883}
   m_Layer: 5
   m_Name: MiniGamePanel
   m_TagString: Untagged
@@ -580,6 +581,20 @@ MonoBehaviour:
   tilePrefab: {fileID: 2643518138406941271, guid: 22eb4adaf17231e4f9d4fd35612b64af, type: 3}
   gridPanel: {fileID: 729395690}
   GridSize: 32
+--- !u!114 &499516883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499516878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d1cf6263388784084e42a923da6a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanExtractToggle: {fileID: 461967475}
+  scanMode: 0
 --- !u!1 &561625970
 GameObject:
   m_ObjectHideFlags: 0

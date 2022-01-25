@@ -32,28 +32,31 @@ public class ScanMode : MonoBehaviour
     public void OnMouseDown()
     {
         int index = 0;
-        while (index < generatedTiles.GetComponent<TileGeneration>().tilesArray.Count)
+        if (generatedTiles.GetComponent<ScanExtractController>().scanMode)
         {
-            if(generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.transform == this.transform)
+            while (index < generatedTiles.GetComponent<TileGeneration>().tilesArray.Count)
             {
-                int SelectedTileRow = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].x;
-                int SelectedTileColumn = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].y;
-                int RowBeforeSelectedTile = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].x - 1;
-                int ColumnBeforeSelectedTile = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].y - 1;
-                int RowAfterSelectedTile = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].x + 1;
-                int ColumnAfterSelectedTile = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].y + 1;
-                setTileColors(RowBeforeSelectedTile, ColumnBeforeSelectedTile);
-                setTileColors(RowBeforeSelectedTile, SelectedTileColumn);
-                setTileColors(RowBeforeSelectedTile, ColumnAfterSelectedTile);
-                setTileColors(SelectedTileRow, ColumnBeforeSelectedTile);
-                setTileColors(SelectedTileRow, SelectedTileColumn);
-                setTileColors(SelectedTileRow, ColumnAfterSelectedTile);
-                setTileColors(RowAfterSelectedTile, ColumnBeforeSelectedTile);
-                setTileColors(RowAfterSelectedTile, SelectedTileColumn);
-                setTileColors(RowAfterSelectedTile, ColumnAfterSelectedTile);
+                if (generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.transform == this.transform)
+                {
+                    int SelectedTileRow = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].x;
+                    int SelectedTileColumn = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].y;
+                    int RowBeforeSelectedTile = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].x - 1;
+                    int ColumnBeforeSelectedTile = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].y - 1;
+                    int RowAfterSelectedTile = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].x + 1;
+                    int ColumnAfterSelectedTile = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].y + 1;
+                    setTileColors(RowBeforeSelectedTile, ColumnBeforeSelectedTile);
+                    setTileColors(RowBeforeSelectedTile, SelectedTileColumn);
+                    setTileColors(RowBeforeSelectedTile, ColumnAfterSelectedTile);
+                    setTileColors(SelectedTileRow, ColumnBeforeSelectedTile);
+                    setTileColors(SelectedTileRow, SelectedTileColumn);
+                    setTileColors(SelectedTileRow, ColumnAfterSelectedTile);
+                    setTileColors(RowAfterSelectedTile, ColumnBeforeSelectedTile);
+                    setTileColors(RowAfterSelectedTile, SelectedTileColumn);
+                    setTileColors(RowAfterSelectedTile, ColumnAfterSelectedTile);
 
+                }
+                index++;
             }
-            index++;
         }
     }
    

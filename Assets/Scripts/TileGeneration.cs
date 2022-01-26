@@ -63,7 +63,7 @@ public class TileGeneration : MonoBehaviour
                 if (tilesArray[index].x % randX == 0 && tilesArray[index].y % randY == 0)
                 {
                     tilesArray[index].resourceValue = Resources.MAX;
-                 //   tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = Color.red;
+                  //  tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = Color.red;
                     HalfTilesGeneration(index);
                     QuarterTilesGeneration(index);
               
@@ -99,7 +99,7 @@ public class TileGeneration : MonoBehaviour
                       (tilesArray[i].x == MaxTileRow && tilesArray[i].y == ColumnBeforeMax))
                 {
                     tilesArray[i].resourceValue = Resources.HALF;
-                 //   tilesArray[i].tileGameObject.gameObject.GetComponent<Image>().color = Color.blue;
+                  // tilesArray[i].tileGameObject.gameObject.GetComponent<Image>().color = Color.blue;
                 }
               
               
@@ -143,7 +143,7 @@ public class TileGeneration : MonoBehaviour
                    (tilesArray[i].x == TwoRowsAfterMax && tilesArray[i].y == TwoColumnsAfterMax)  )
                 {
                     tilesArray[i].resourceValue = Resources.QUARTER;
-                 //   tilesArray[i].tileGameObject.gameObject.GetComponent<Image>().color = Color.yellow;
+                  //  tilesArray[i].tileGameObject.gameObject.GetComponent<Image>().color = Color.yellow;
                 }
 
 

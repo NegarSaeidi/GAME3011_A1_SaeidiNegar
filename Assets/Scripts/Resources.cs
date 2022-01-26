@@ -5,5 +5,6 @@ public enum Resources
    HALF,
    QUARTER,
    EMPTY,
+   EXTRACTED,
    NOTASSIGNED
 }

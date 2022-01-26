@@ -15,11 +15,13 @@ public class ScanExtractController : MonoBehaviour
     public bool ReachedMaxOfScans;
     public bool ReachedMaxOfExtracts;
     private int score;
-
-    public GameObject result,UpdateMsg;
+    
+    
+    public GameObject result,UpdateMsg,scoreLabel;
     void Start()
     {
         
+
         score = 0;
         ReachedMaxOfScans = false;
         ReachedMaxOfExtracts = false;
@@ -43,6 +45,7 @@ public class ScanExtractController : MonoBehaviour
         else
         {
             scanMode = false;
+          
             extractMode = true;
         }
         if(ReachedMaxOfExtracts)
@@ -69,6 +72,8 @@ public class ScanExtractController : MonoBehaviour
         {
 
             numberOfExtractions++;
+          
+
         }
         else
             ReachedMaxOfExtracts = true;
@@ -94,7 +99,7 @@ public class ScanExtractController : MonoBehaviour
                 score += 0;
                 break;
         }
-        Debug.Log(score);
+        scoreLabel.GetComponent<TMPro.TextMeshProUGUI>().text = (score.ToString());
 
     }
 }

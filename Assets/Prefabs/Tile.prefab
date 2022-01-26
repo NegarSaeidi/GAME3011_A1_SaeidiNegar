@@ -96,7 +96,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -150,5 +150,5 @@ MonoBehaviour:
   HalfColor: {r: 0.9450981, g: 0.61960787, b: 0.8313726, a: 1}
   QuarterColor: {r: 1, g: 0.9490197, b: 0.9803922, a: 1}
   EmptyColor: {r: 0.4039216, g: 0.39607847, b: 0.40000004, a: 1}
-  extractedColor: {r: 0, g: 0, b: 0, a: 1}
   score: 0
+  tileIndex: 0

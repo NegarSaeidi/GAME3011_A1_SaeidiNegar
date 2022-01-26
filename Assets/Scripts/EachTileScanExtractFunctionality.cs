@@ -10,10 +10,13 @@ public class EachTileScanExtractFunctionality : MonoBehaviour
     private bool extracted;
     public int tileIndex = 0;
     Resources tileValue;
+    private bool resetTiles;
+    private int counter = 0;
    
     void Start()
     {
-      
+        resetTiles = false;
+        
         extracted = false;
         GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 
@@ -33,18 +36,34 @@ public class EachTileScanExtractFunctionality : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
-        if (generatedTiles.GetComponent<ScanExtractController>().extractMode)
-        {
-            if (!extracted)
-            {
 
-                gameObject.GetComponent<Image>().color = Color.cyan;
-            }
-            else
+        if (generatedTiles.GetComponent<ScanExtractController>().scanMode)
+        {
+            resetTiles = false;
+        }
+        else if (generatedTiles.GetComponent<ScanExtractController>().extractMode)
+        {
+            if (!resetTiles)
             {
-                gameObject.GetComponent<Image>().color = HalfColor;
+                resetTiles = true;
+              
+                if (!extracted)
+                {
+
+                    int index = 0;
+                    while (index < generatedTiles.GetComponent<TileGeneration>().tilesArray.Count)
+                    {
+                        if (generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.transform == this.transform)
+                        {
+                            generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Image>().color = Color.cyan;
+                        }
+                        index++;
+                    }
+
+                }
+                
             }
+            
            
         }
 
@@ -68,6 +87,7 @@ public class EachTileScanExtractFunctionality : MonoBehaviour
     }
     private void ExtractTiles()
     {
+       
         int index = 0;
 
         generatedTiles.GetComponent<ScanExtractController>().NumberOfExtractionsCounter();
@@ -78,18 +98,20 @@ public class EachTileScanExtractFunctionality : MonoBehaviour
                 tileValue = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].resourceValue;
                 generatedTiles.GetComponent<ScanExtractController>().UpdateMsgOnScreen(tileValue);
                 extracted = true;
-               
+              
+              
+                
                 int SelectedTileRow = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].x;
                 int SelectedTileColumn = generatedTiles.GetComponent<TileGeneration>().tilesArray[index].y;
                 setTileColors(SelectedTileRow, SelectedTileColumn);
                 generatedTiles.GetComponent<ScanExtractController>().scoreCalculator(generatedTiles.GetComponent<TileGeneration>().tilesArray[index].resourceValue);
-                adjustNeighboursValues(SelectedTileRow,SelectedTileColumn);
+                adjustNeighboursValues(SelectedTileRow, SelectedTileColumn);
                 generatedTiles.GetComponent<TileGeneration>().tilesArray[index].resourceValue = Resources.EXTRACTED;
                 generatedTiles.GetComponent<TileGeneration>().tilesArray[index].tileGameObject.gameObject.GetComponent<Button>().interactable = false;
 
-                
 
-             
+
+
 
 
             }

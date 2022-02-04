@@ -15,13 +15,13 @@ public class ScanExtractController : MonoBehaviour
     public bool ReachedMaxOfScans;
     public bool ReachedMaxOfExtracts;
     private int score;
-    
+    public GameObject exitButton;
     
     public GameObject result,UpdateMsg,scoreLabel;
     void Start()
     {
-        
 
+        exitButton.SetActive(false);
         score = 0;
         ReachedMaxOfScans = false;
         ReachedMaxOfExtracts = false;
@@ -48,8 +48,12 @@ public class ScanExtractController : MonoBehaviour
           
             extractMode = true;
         }
-        if(ReachedMaxOfExtracts)
-            result.GetComponent<TMPro.TextMeshProUGUI>().text = ("The amount of collected resources: "+ score);
+        if (ReachedMaxOfExtracts)
+        {
+            result.GetComponent<TMPro.TextMeshProUGUI>().text = ("You extracted 3 times! The amount of collected resources: " + score);
+            exitButton.SetActive(true);
+
+        }
     }
   
     public void NumberOfScansCounter()
